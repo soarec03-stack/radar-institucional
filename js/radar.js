@@ -3605,6 +3605,49 @@ function showPage(
 
 }
 
+/* ============================================================
+   ÍCONES DA SIDEBAR NOS TÍTULOS DAS PÁGINAS
+   ============================================================ */
+
+function syncPageTitleIcons() {
+
+    PAGE_IDS.forEach((pageId) => {
+
+        const page =
+            document.getElementById(pageId);
+
+        if (!page) return;
+
+        const iconTarget =
+            page.querySelector(
+                ".section-page-icon"
+            );
+
+        if (!iconTarget) return;
+
+        const sidebarLink =
+            document.querySelector(
+                `.sidebar-link[data-page-target="${pageId}"]`
+            );
+
+        if (!sidebarLink) return;
+
+        const sidebarSvg =
+            sidebarLink.querySelector("svg");
+
+        if (!sidebarSvg) return;
+
+        /*
+           Clonamos o SVG para manter apenas uma fonte
+           visual dos ícones: a própria sidebar.
+        */
+        iconTarget.replaceChildren(
+            sidebarSvg.cloneNode(true)
+        );
+
+    });
+
+}
 
 /* ============================================================
    INICIALIZAR NAVEGAÇÃO
@@ -3782,37 +3825,18 @@ function initPageNavigation() {
    ============================================================ */
 
 document.addEventListener(
-
     "DOMContentLoaded",
-
     () => {
 
-
         /*
-           Primeiro ativamos a navegação.
+           Replica os 15 ícones da sidebar nos
+           respectivos títulos das páginas.
         */
+        syncPageTitleIcons();
 
         initPageNavigation();
-
-
-        /*
-           Depois carregamos o radar.json.
-
-           As funções:
-
-           renderMarketOverview
-           renderMacro
-           renderBrazil
-           renderFutures
-           renderSectors
-           renderPower
-           etc.
-
-           continuam exatamente iguais.
-        */
 
         carregarRadar();
 
     }
-
 );
