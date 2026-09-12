@@ -2818,7 +2818,7 @@ function renderCatalysts(data) {
 function renderAlerts(data) {
 
     const grid =
-        $("alertsGrid");
+        $("alertsList");
 
 
     clear(grid);
