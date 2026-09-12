@@ -243,7 +243,7 @@ function moneyBRL(value) {
     return (
         `${sign}R$ ` +
         `${numberBR(
-            Math.abs(n) / 1e9,
+            Math.abs(n),
             2
         )} bi`
     );
