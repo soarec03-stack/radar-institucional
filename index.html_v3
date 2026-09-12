@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Radar Institucional V2.1 - Global Markets Intelligence">
+
+    <title>Radar Institucional</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+</head>
+
+<body class="app-shell">
+
+    <!-- =========================================================
+         SIDEBAR
+         Etapa 1: estrutura preparada para navegação entre páginas.
+         A lógica de troca de páginas será adicionada ao radar.js
+         somente na Etapa 3.
+         ========================================================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="logo-icon">
+                RI
+            </div>
+
+            <div class="sidebar-brand-text">
+                <h1>RADAR INSTITUCIONAL</h1>
+                <span>Global Markets Intelligence</span>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Navegação principal">
+                <a href="#overview" class="sidebar-link is-active" data-page-target="overview">
+                    <span class="sidebar-number">01</span>
+                    <span>Overview</span>
+                </a>
+                <a href="#macro" class="sidebar-link" data-page-target="macro">
+                    <span class="sidebar-number">02</span>
+                    <span>Macro</span>
+                </a>
+                <a href="#brazil" class="sidebar-link" data-page-target="brazil">
+                    <span class="sidebar-number">03</span>
+                    <span>Brasil</span>
+                </a>
+                <a href="#winwdo" class="sidebar-link" data-page-target="winwdo">
+                    <span class="sidebar-number">04</span>
+                    <span>WIN / WDO / DI</span>
+                </a>
+                <a href="#sectors" class="sidebar-link" data-page-target="sectors">
+                    <span class="sidebar-number">05</span>
+                    <span>Setores</span>
+                </a>
+                <a href="#power" class="sidebar-link" data-page-target="power">
+                    <span class="sidebar-number">06</span>
+                    <span>Power / Data Center</span>
+                </a>
+                <a href="#nuclear" class="sidebar-link" data-page-target="nuclear">
+                    <span class="sidebar-number">07</span>
+                    <span>Nuclear</span>
+                </a>
+                <a href="#swing" class="sidebar-link" data-page-target="swing">
+                    <span class="sidebar-number">08</span>
+                    <span>Swing Trades</span>
+                </a>
+                <a href="#portfolio" class="sidebar-link" data-page-target="portfolio">
+                    <span class="sidebar-number">09</span>
+                    <span>Carteira</span>
+                </a>
+                <a href="#penny" class="sidebar-link" data-page-target="penny">
+                    <span class="sidebar-number">10</span>
+                    <span>Penny Stocks</span>
+                </a>
+                <a href="#ranking" class="sidebar-link" data-page-target="ranking">
+                    <span class="sidebar-number">11</span>
+                    <span>Ranking</span>
+                </a>
+                <a href="#analysis" class="sidebar-link" data-page-target="analysis">
+                    <span class="sidebar-number">12</span>
+                    <span>Análises</span>
+                </a>
+                <a href="#catalysts" class="sidebar-link" data-page-target="catalysts">
+                    <span class="sidebar-number">13</span>
+                    <span>Catalisadores</span>
+                </a>
+                <a href="#alerts" class="sidebar-link" data-page-target="alerts">
+                    <span class="sidebar-number">14</span>
+                    <span>Alertas</span>
+                </a>
+                <a href="#conclusion" class="sidebar-link" data-page-target="conclusion">
+                    <span class="sidebar-number">15</span>
+                    <span>Conclusão</span>
+                </a>
+        </nav>
+
+        <div class="sidebar-meta">
+            <span>Schema V2.1</span>
+            <span>© 2026 Radar Institucional</span>
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================================
+         CONTEÚDO PRINCIPAL
+         ========================================================= -->
+
+    <div class="app-content">
+
+        <!-- =====================================================
+             TOP BAR
+             IDs mantidos para compatibilidade com js/radar.js
+             ===================================================== -->
+
+        <header class="header">
+
+            <div class="page-context">
+
+                <span class="page-context-label">
+                    Dashboard
+                </span>
+
+                <strong class="page-context-title">
+                    Global Markets Intelligence
+                </strong>
+
+            </div>
+
+            <div class="header-info">
+
+                <div>
+                    <span class="label">
+                        Atualização
+                    </span>
+
+                    <strong id="dataAtualizacao">
+                        --
+                    </strong>
+                </div>
+
+                <div class="market-status">
+
+                    <span id="marketStatusDot" class="status-dot"></span>
+
+                    Mercado
+
+                    <strong id="marketStatus">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main class="container">
+
+            <!-- =================================================
+                 RESUMO EXECUTIVO PERSISTENTE
+                 Não faz parte das 15 páginas de navegação.
+                 IDs originais preservados.
+                 ================================================= -->
+
+<section id="radar-summary">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-number">
+                        RI
+                    </span>
+
+                    <h2>
+                        Radar Institucional
+                    </h2>
+
+                </div>
+
+                <span id="riskBadge" class="badge">
+                    --
+                </span>
+
+            </div>
+
+            <div class="alert-box radar-summary-box">
+
+                <div class="alert-icon">
+                    ◉
+                </div>
+
+                <div>
+
+                    <h3 id="marketRegime">
+                        --
+                    </h3>
+
+                    <p id="radarSummary">
+                        --
+                    </p>
+
+                    <p>
+                        <strong>Sentimento:</strong>
+                        <span id="institutionalSentiment">--</span>
+                        &nbsp; | &nbsp;
+
+                        <strong>Viés diário:</strong>
+                        <span id="dailyBias">--</span>
+                        &nbsp; | &nbsp;
+
+                        <strong>Risco:</strong>
+                        <span id="riskLevel">--</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+            <!-- =================================================
+                 15 PÁGINAS INTERNAS
+                 Apenas a organização visual muda.
+                 Todos os IDs internos continuam iguais.
+                 ================================================= -->
+
+            <div class="radar-pages">
+
+<section id="overview" class="radar-page is-active" data-page="overview">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <h2>
+                        Market Overview
+                    </h2>
+
+                </div>
+
+                <span id="overviewBadge" class="badge">
+                    --
+                </span>
+
+            </div>
+
+            <div class="cards-grid">
+
+                <div class="metric-card">
+                    <span>IBOVESPA</span>
+                    <strong id="ibovespa">--</strong>
+                    <small id="ibovespaMeta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>DÓLAR</span>
+                    <strong id="dolar">--</strong>
+                    <small id="dolarMeta">USD / BRL</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>S&amp;P 500</span>
+                    <strong id="sp500">--</strong>
+                    <small id="sp500Meta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>NASDAQ</span>
+                    <strong id="nasdaq">--</strong>
+                    <small id="nasdaqMeta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>BRENT</span>
+                    <strong id="brent">--</strong>
+                    <small id="brentMeta">USD</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>TREASURY 10Y</span>
+                    <strong id="treasury10y">--</strong>
+                    <small id="treasury10yMeta">Yield</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>DOW</span>
+                    <strong id="dow">--</strong>
+                    <small id="dowMeta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>RUSSELL 2000</span>
+                    <strong id="russell2000">--</strong>
+                    <small id="russell2000Meta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>WTI</span>
+                    <strong id="wti">--</strong>
+                    <small id="wtiMeta">USD</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>VIX</span>
+                    <strong id="vix">--</strong>
+                    <small id="vixMeta">Volatilidade</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>TREASURY 2Y</span>
+                    <strong id="treasury2y">--</strong>
+                    <small id="treasury2yMeta">Yield</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>DOLLAR INDEX</span>
+                    <strong id="dollarIndex">--</strong>
+                    <small id="dollarIndexMeta">DXY</small>
+                </div>
+
+            </div>
+
+        </section>
+<section id="macro" class="radar-page" data-page="macro">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">02</span>
+                    <h2>Radar Macro</h2>
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Data / Hora</th>
+                            <th>Resultado</th>
+                            <th>Expectativa</th>
+                            <th>Impacto</th>
+                            <th>WIN</th>
+                            <th>WDO</th>
+                            <th>Comentário</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="macroTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+<section id="brazil" class="radar-page" data-page="brazil">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">03</span>
+                    <h2>Brasil</h2>
+                </div>
+
+                <span id="brazilBias" class="badge">
+                    --
+                </span>
+
+            </div>
+
+            <div class="cards-grid">
+
+                <div class="metric-card">
+                    <span>IBOVESPA</span>
+                    <strong id="brazilIbovespa">--</strong>
+                    <small id="brazilIbovespaMeta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>IBOVESPA FUTURO</span>
+                    <strong id="ibovespaFutures">--</strong>
+                    <small id="ibovespaFuturesMeta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>DÓLAR BRL</span>
+                    <strong id="brazilDollar">--</strong>
+                    <small id="brazilDollarMeta">--</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>SELIC</span>
+                    <strong id="selic">--</strong>
+                    <small>Taxa básica</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>IPCA</span>
+                    <strong id="ipca">--</strong>
+                    <small>Inflação</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>PIB</span>
+                    <strong id="gdp">--</strong>
+                    <small>Crescimento</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>RISCO FISCAL</span>
+                    <strong id="fiscalRisk">--</strong>
+                    <small>Brasil</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>RISCO POLÍTICO</span>
+                    <strong id="politicalRisk">--</strong>
+                    <small>Brasil</small>
+                </div>
+
+            </div>
+
+            <div class="alert-box">
+
+                <div class="alert-icon">
+                    BR
+                </div>
+
+                <div>
+                    <h3>Comentário Brasil</h3>
+                    <p id="brazilComment">--</p>
+                </div>
+
+            </div>
+
+            <div class="two-columns">
+
+                <div class="signal-card">
+
+                    <div class="signal-header">
+                        <span>Fluxo Estrangeiro</span>
+                        <strong id="foreignFlowStatus">--</strong>
+                    </div>
+
+                    <ul>
+                        <li>Diário: <strong id="foreignFlowDaily">--</strong></li>
+                        <li>Mensal: <strong id="foreignFlowMonthly">--</strong></li>
+                        <li>Ano: <strong id="foreignFlowYtd">--</strong></li>
+                        <li>Tendência: <strong id="foreignFlowTrend">--</strong></li>
+                    </ul>
+
+                    <div class="confidence">
+                        Dados <strong id="foreignFlowDelay">--</strong>
+                    </div>
+
+                </div>
+
+                <div class="signal-card">
+
+                    <div class="signal-header">
+                        <span>Leitura do Fluxo</span>
+                        <strong id="foreignFlowTrendBadge">--</strong>
+                    </div>
+
+                    <p id="foreignFlowComment">--</p>
+
+                </div>
+
+            </div>
+
+        </section>
+<section id="winwdo" class="radar-page" data-page="winwdo">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">04</span>
+                    <h2>WIN / WDO / DI — Operacional</h2>
+                </div>
+
+            </div>
+
+            <div class="two-columns">
+
+                <div class="signal-card buy">
+
+                    <div class="signal-header">
+                        <span id="winScenarioLabel">WIN</span>
+                        <strong id="winBias">--</strong>
+                    </div>
+
+                    <ul id="winConditionsList"></ul>
+
+                    <div class="confidence">
+                        Compra
+                        <strong id="winBuyConfidence">--</strong>
+                    </div>
+
+                    <div class="confidence">
+                        Venda
+                        <strong id="winSellConfidence">--</strong>
+                    </div>
+
+                </div>
+
+                <div class="signal-card sell">
+
+                    <div class="signal-header">
+                        <span>WDO / DI</span>
+                        <strong id="wdoBias">--</strong>
+                    </div>
+
+                    <ul id="wdoDiConditionsList"></ul>
+
+                    <div class="confidence">
+                        DI
+                        <strong id="diBias">--</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Condição</th>
+                            <th>WIN</th>
+                            <th>WDO</th>
+                            <th>DI</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="futuresConditionsTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+<section id="sectors" class="radar-page" data-page="sectors">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">05</span>
+                    <h2>Setores</h2>
+                </div>
+
+            </div>
+
+            <div class="ranking-grid" id="sectorsGrid"></div>
+
+        </section>
+<section id="power" class="radar-page" data-page="power">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">06</span>
+                    <h2>⚡ Power / Data Center Infrastructure</h2>
+                </div>
+
+            </div>
+
+            <div class="ranking-grid" id="powerGrid"></div>
+
+        </section>
+<section id="nuclear" class="radar-page" data-page="nuclear">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">07</span>
+                    <h2>☢ Nuclear</h2>
+                </div>
+
+            </div>
+
+            <div class="ranking-grid" id="nuclearGrid"></div>
+
+        </section>
+<section id="swing" class="radar-page" data-page="swing">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">08</span>
+                    <h2>Swing Trades</h2>
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Ativo</th>
+                            <th>Preço</th>
+                            <th>Entrada</th>
+                            <th>Stop</th>
+                            <th>Target</th>
+                            <th>R/R</th>
+                            <th>Viés</th>
+                            <th>Recomendação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="swingTable"></tbody>
+
+                </table>
+
+            </div>
+
+            <div id="swingDetails" class="ranking-grid"></div>
+
+        </section>
+<section id="portfolio" class="radar-page" data-page="portfolio">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">09</span>
+                    <h2>Minha Carteira</h2>
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Ativo</th>
+                            <th>Preço</th>
+                            <th>Variação</th>
+                            <th>Viés</th>
+                            <th>Risco</th>
+                            <th>Recomendação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="portfolioTable"></tbody>
+
+                </table>
+
+            </div>
+
+            <div id="portfolioDetails" class="ranking-grid"></div>
+
+        </section>
+<section id="penny" class="radar-page" data-page="penny">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">10</span>
+                    <h2>💰 Penny Stocks</h2>
+                </div>
+
+            </div>
+
+            <div class="ranking-grid" id="pennyGrid"></div>
+
+        </section>
+<section id="ranking" class="radar-page" data-page="ranking">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">11</span>
+                    <h2>Ranking Institucional</h2>
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Ticker</th>
+                            <th>Empresa</th>
+                            <th>Score</th>
+                            <th>Recomendação</th>
+                            <th>Risco</th>
+                            <th>Motivo</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="rankingTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+<section id="analysis" class="radar-page" data-page="analysis">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">12</span>
+                    <h2>Análises</h2>
+                </div>
+
+            </div>
+
+            <div class="two-columns">
+
+                <div>
+
+                    <h3>Análise Fundamentalista</h3>
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Ativo</th>
+                                    <th>Valuation</th>
+                                    <th>Receita</th>
+                                    <th>Lucros</th>
+                                    <th>Rentabilidade</th>
+                                    <th>Balanço</th>
+                                    <th>Viés</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="fundamentalTable"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <h3>Análise Técnica</h3>
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Ativo</th>
+                                    <th>Tendência</th>
+                                    <th>Suporte</th>
+                                    <th>Resistência</th>
+                                    <th>RSI</th>
+                                    <th>MA20</th>
+                                    <th>MA50</th>
+                                    <th>MA200</th>
+                                    <th>Viés</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="technicalTable"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+<section id="catalysts" class="radar-page" data-page="catalysts">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">13</span>
+                    <h2>Catalisadores / Agenda</h2>
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Ticker</th>
+                            <th>Evento</th>
+                            <th>Importância</th>
+                            <th>Impacto Esperado</th>
+                            <th>Comentário</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="catalystsTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+<section id="alerts" class="radar-page" data-page="alerts">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">14</span>
+                    <h2>Alertas</h2>
+                </div>
+
+            </div>
+
+            <div id="alertsGrid" class="ranking-grid"></div>
+
+        </section>
+<section id="conclusion" class="radar-page" data-page="conclusion">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">15</span>
+                    <h2>Conclusão Operacional</h2>
+                </div>
+
+                <span id="conclusionActionBadge" class="badge">
+                    --
+                </span>
+
+            </div>
+
+            <div class="two-columns">
+
+                <div class="signal-card">
+
+                    <div class="signal-header">
+                        <span>WIN</span>
+                        <strong id="conclusionWin">--</strong>
+                    </div>
+
+                    <p id="conclusionWinText">--</p>
+
+                </div>
+
+                <div class="signal-card">
+
+                    <div class="signal-header">
+                        <span>WDO</span>
+                        <strong id="conclusionWdo">--</strong>
+                    </div>
+
+                    <p id="conclusionWdoText">--</p>
+
+                </div>
+
+            </div>
+
+            <div class="cards-grid">
+
+                <div class="metric-card">
+                    <span>AÇÕES</span>
+                    <strong id="conclusionStocks">--</strong>
+                    <small>Viés</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>TEMA PREFERIDO</span>
+                    <strong id="preferredTheme">--</strong>
+                    <small>Radar</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>PRINCIPAL RISCO</span>
+                    <strong id="mainRisk">--</strong>
+                    <small>Monitorar</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>PRINCIPAL CATALISADOR</span>
+                    <strong id="mainCatalyst">--</strong>
+                    <small>Monitorar</small>
+                </div>
+
+            </div>
+
+            <div class="alert-box">
+
+                <div class="alert-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <h3>Ação do Radar</h3>
+                    <p id="operationalAction">--</p>
+                </div>
+
+            </div>
+
+        </section>
+
+            </div>
+
+
+            <!-- =================================================
+                 FONTES
+                 Mantida fora das 15 páginas e com os IDs originais.
+                 ================================================= -->
+
+<section id="sources">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-number">SRC</span>
+                    <h2>Fontes</h2>
+                </div>
+
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Fonte</th>
+                            <th>Dados suportados</th>
+                            <th>Coleta</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="sourcesTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+        </main>
+
+
+        <!-- =====================================================
+             FOOTER
+             ===================================================== -->
+
+        <footer>
+
+            <div>
+
+                <strong>
+                    RADAR INSTITUCIONAL
+                </strong>
+
+                <p>
+                    Global Markets Intelligence
+                </p>
+
+            </div>
+
+            <div>
+
+                <p>
+                    Dados para fins informativos.
+                </p>
+
+                <p>
+                    Schema V2.1 · © 2026 Radar Institucional
+                </p>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!--
+        Etapa 1:
+        O radar.js permanece o mesmo.
+        A navegação entre páginas será implementada na Etapa 3.
+    -->
+    <script src="js/radar.js"></script>
+
+</body>
+
+</html>

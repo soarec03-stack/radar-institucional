@@ -967,95 +967,81 @@
         </section>
 <section id="analysis" class="radar-page" data-page="analysis">
 
-            <div class="section-header intelligence-page-header">
+            <div class="section-header">
 
                 <div>
                     <span class="section-number">12</span>
-
-                    <div class="section-title-copy">
-                        <h2>Análises</h2>
-                        <p>Leitura fundamentalista e técnica consolidada por ativo e tese.</p>
-                    </div>
+                    <h2>Análises</h2>
                 </div>
 
-            </div>
-
-            <div class="intelligence-intro-bar intelligence-intro-analysis">
-                <div>
-                    <span class="intelligence-intro-kicker">DUPLA VALIDAÇÃO</span>
-                    <strong>Fundamentos sustentam a tese; técnica define timing e risco de execução</strong>
-                </div>
-
-                <span class="intelligence-intro-note">
-                    Fundamental + Técnica
-                </span>
             </div>
 
             <div class="analysis-stack">
 
                 <div class="analysis-block">
 
-                    <div class="analysis-block-header">
+                    <div class="analysis-title-row">
+                        <span class="analysis-title-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-6h4v6"/><path d="M10 20V9h4v11"/><path d="M15 20V4h4v16"/><path d="M4 7l3-3 3 3 3-3 3 3"/></svg></span>
                         <div>
-                            <span class="analysis-block-kicker">FUNDAMENTOS</span>
                             <h3>Análise Fundamentalista</h3>
+                            <p>Avaliação de fundamentos, resultados e perspectiva de valor das principais ações.</p>
                         </div>
-
-                        <span class="analysis-block-note">
-                            Qualidade da tese
-                        </span>
                     </div>
 
-                    <div class="table-container intelligence-table">
+                    <div class="table-container">
 
                         <table>
+
                             <thead>
                                 <tr>
                                     <th>Ativo</th>
                                     <th>Valuation</th>
-                                    <th>Crescimento</th>
-                                    <th>Margens</th>
+                                    <th>Receita</th>
+                                    <th>Lucros</th>
+                                    <th>Rentabilidade</th>
                                     <th>Balanço</th>
-                                    <th>Conclusão</th>
+                                    <th>Viés</th>
                                 </tr>
                             </thead>
 
                             <tbody id="fundamentalTable"></tbody>
+
                         </table>
 
                     </div>
 
                 </div>
 
-
                 <div class="analysis-block">
 
-                    <div class="analysis-block-header">
+                    <div class="analysis-title-row">
+                        <span class="analysis-title-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16"/><path d="M5 17l4-5 4 3 6-8"/><path d="M16 7h3v3"/></svg></span>
                         <div>
-                            <span class="analysis-block-kicker">TÉCNICA</span>
                             <h3>Análise Técnica</h3>
+                            <p>Avaliação de tendência, níveis técnicos e momentum das principais ações.</p>
                         </div>
-
-                        <span class="analysis-block-note">
-                            Timing e estrutura
-                        </span>
                     </div>
 
-                    <div class="table-container intelligence-table">
+                    <div class="table-container">
 
                         <table>
+
                             <thead>
                                 <tr>
                                     <th>Ativo</th>
                                     <th>Tendência</th>
-                                    <th>Momentum</th>
                                     <th>Suporte</th>
                                     <th>Resistência</th>
-                                    <th>Conclusão</th>
+                                    <th>RSI</th>
+                                    <th>MA20</th>
+                                    <th>MA50</th>
+                                    <th>MA200</th>
+                                    <th>Viés</th>
                                 </tr>
                             </thead>
 
                             <tbody id="technicalTable"></tbody>
+
                         </table>
 
                     </div>
@@ -1067,41 +1053,27 @@
         </section>
 <section id="catalysts" class="radar-page" data-page="catalysts">
 
-            <div class="section-header intelligence-page-header">
+            <div class="section-header">
 
                 <div>
                     <span class="section-number">13</span>
-
-                    <div class="section-title-copy">
-                        <h2>Catalisadores</h2>
-                        <p>Eventos que podem alterar preço, percepção de risco ou prioridade do Radar.</p>
-                    </div>
+                    <h2>Catalisadores / Agenda</h2>
                 </div>
 
             </div>
 
-            <div class="intelligence-intro-bar intelligence-intro-catalysts">
-                <div>
-                    <span class="intelligence-intro-kicker">EVENTOS DE IMPACTO</span>
-                    <strong>Monitore o que pode acelerar, invalidar ou reprecificar a tese</strong>
-                </div>
-
-                <span class="intelligence-intro-note">
-                    Timing de evento
-                </span>
-            </div>
-
-            <div class="table-container intelligence-table catalysts-table">
+            <div class="table-container">
 
                 <table>
 
                     <thead>
                         <tr>
                             <th>Data</th>
-                            <th>Ativo / Tema</th>
+                            <th>Ticker</th>
                             <th>Evento</th>
-                            <th>Impacto</th>
-                            <th>Leitura</th>
+                            <th>Importância</th>
+                            <th>Impacto Esperado</th>
+                            <th>Comentário</th>
                         </tr>
                     </thead>
 
@@ -1114,67 +1086,97 @@
         </section>
 <section id="alerts" class="radar-page" data-page="alerts">
 
-            <div class="section-header intelligence-page-header">
+            <div class="section-header">
 
                 <div>
                     <span class="section-number">14</span>
-
-                    <div class="section-title-copy">
-                        <h2>Alertas</h2>
-                        <p>Pontos de atenção, riscos de cenário e condições que exigem monitoramento.</p>
-                    </div>
+                    <h2>Alertas</h2>
                 </div>
 
             </div>
 
-            <div class="intelligence-intro-bar intelligence-intro-alerts">
-                <div>
-                    <span class="intelligence-intro-kicker">RISCO &amp; MONITORAMENTO</span>
-                    <strong>Priorize alertas que possam mudar direção, risco ou convicção</strong>
-                </div>
-
-                <span class="intelligence-intro-note">
-                    Atenção operacional
-                </span>
-            </div>
-
-            <div id="alertsList" class="alerts-grid intelligence-alerts-grid"></div>
+            <div id="alertsGrid" class="ranking-grid"></div>
 
         </section>
 <section id="conclusion" class="radar-page" data-page="conclusion">
 
-            <div class="section-header intelligence-page-header">
+            <div class="section-header">
 
                 <div>
                     <span class="section-number">15</span>
-
-                    <div class="section-title-copy">
-                        <h2>Conclusão</h2>
-                        <p>Síntese final do cenário, prioridades e postura recomendada pelo Radar.</p>
-                    </div>
+                    <h2>Conclusão Operacional</h2>
                 </div>
 
-            </div>
-
-            <div class="intelligence-intro-bar intelligence-intro-conclusion">
-                <div>
-                    <span class="intelligence-intro-kicker">SÍNTESE EXECUTIVA</span>
-                    <strong>Transforme o conjunto de sinais em uma postura clara de risco e execução</strong>
-                </div>
-
-                <span class="intelligence-intro-note">
-                    Visão consolidada
+                <span id="conclusionActionBadge" class="badge">
+                    --
                 </span>
+
             </div>
 
-            <div class="conclusion-panel">
+            <div class="two-columns">
 
-                <div class="conclusion-panel-header">
-                    <span>LEITURA FINAL</span>
-                    <small>Radar Institucional</small>
+                <div class="signal-card">
+
+                    <div class="signal-header">
+                        <span>WIN</span>
+                        <strong id="conclusionWin">--</strong>
+                    </div>
+
+                    <p id="conclusionWinText">--</p>
+
                 </div>
 
-                <div id="conclusionText" class="conclusion-text"></div>
+                <div class="signal-card">
+
+                    <div class="signal-header">
+                        <span>WDO</span>
+                        <strong id="conclusionWdo">--</strong>
+                    </div>
+
+                    <p id="conclusionWdoText">--</p>
+
+                </div>
+
+            </div>
+
+            <div class="cards-grid">
+
+                <div class="metric-card">
+                    <span>AÇÕES</span>
+                    <strong id="conclusionStocks">--</strong>
+                    <small>Viés</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>TEMA PREFERIDO</span>
+                    <strong id="preferredTheme">--</strong>
+                    <small>Radar</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>PRINCIPAL RISCO</span>
+                    <strong id="mainRisk">--</strong>
+                    <small>Monitorar</small>
+                </div>
+
+                <div class="metric-card">
+                    <span>PRINCIPAL CATALISADOR</span>
+                    <strong id="mainCatalyst">--</strong>
+                    <small>Monitorar</small>
+                </div>
+
+            </div>
+
+            <div class="alert-box">
+
+                <div class="alert-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <h3>Ação do Radar</h3>
+                    <p id="operationalAction">--</p>
+                </div>
 
             </div>
 

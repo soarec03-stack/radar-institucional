@@ -17,30 +17,21 @@ Write-Host ""
 Write-Host "Monitorando:"
 Write-Host $arquivo
 Write-Host ""
-Write-Host "O script ficará aguardando alterações."
+Write-Host "Verificação a cada 2 segundos."
 Write-Host "Pressione CTRL+C para encerrar."
 Write-Host ""
 
-$watcher = New-Object System.IO.FileSystemWatcher
+$ultimaData = (Get-Item $arquivo).LastWriteTime
 
-$watcher.Path = Split-Path $arquivo
-$watcher.Filter = "radar_input.txt"
-$watcher.NotifyFilter = [System.IO.NotifyFilters]::LastWrite
+while ($true) {
 
-$ultimaExecucao = [DateTime]::MinValue
+    Start-Sleep -Seconds 2
 
-Register-ObjectEvent `
-    -InputObject $watcher `
-    -EventName Changed `
-    -Action {
+    $dataAtual = (Get-Item $arquivo).LastWriteTime
 
-        $agora = Get-Date
+    if ($dataAtual -ne $ultimaData) {
 
-        if (($agora - $script:ultimaExecucao).TotalSeconds -lt 3) {
-            return
-        }
-
-        $script:ultimaExecucao = $agora
+        $ultimaData = $dataAtual
 
         Write-Host ""
         Write-Host "============================================"
@@ -51,32 +42,12 @@ Register-ObjectEvent `
         Write-Host "Executando atualização do Radar..."
         Write-Host ""
 
-        try {
-
-            & "$PSScriptRoot\update_radar.ps1"
-
-            if ($LASTEXITCODE -eq 0) {
-                Write-Host ""
-                Write-Host "Atualização concluída."
-            }
-            else {
-                Write-Host ""
-                Write-Host "ERRO: atualização não concluída." -ForegroundColor Red
-            }
-
-        }
-        catch {
-            Write-Host ""
-            Write-Host "ERRO: $($_.Exception.Message)" -ForegroundColor Red
-        }
+        & "$PSScriptRoot\update_radar.ps1"
 
         Write-Host ""
-        Write-Host "Monitoramento continua ativo."
+        Write-Host "============================================"
+        Write-Host " MONITORAMENTO CONTINUA ATIVO"
+        Write-Host "============================================"
         Write-Host ""
-    } | Out-Null
-
-$watcher.EnableRaisingEvents = $true
-
-while ($true) {
-    Start-Sleep -Seconds 1
+    }
 }

@@ -3262,49 +3262,73 @@ async function carregarRadar() {
 
 /* ============================================================
    NAVEGAÇÃO ENTRE PÁGINAS
-   V3.1 — robusta por ID
    ============================================================ */
 
+/*
+   Cada item da sidebar aponta para um data-page.
+
+   Exemplo:
+
+   data-page-target="power"
+
+   mostra somente:
+
+   data-page="power"
+*/
+
+
 const PAGE_TITLES = {
-    overview: "Overview",
-    macro: "Macro",
-    brazil: "Brasil",
-    winwdo: "WIN / WDO / DI",
-    sectors: "Setores",
-    power: "Power / Data Center",
-    nuclear: "Nuclear",
-    swing: "Swing Trades",
-    portfolio: "Carteira",
-    penny: "Penny Stocks",
-    ranking: "Ranking",
-    analysis: "Análises",
-    catalysts: "Catalisadores",
-    alerts: "Alertas",
-    conclusion: "Conclusão"
+
+    overview:
+        "Overview",
+
+    macro:
+        "Macro",
+
+    brazil:
+        "Brasil",
+
+    winwdo:
+        "WIN / WDO / DI",
+
+    sectors:
+        "Setores",
+
+    power:
+        "Power / Data Center",
+
+    nuclear:
+        "Nuclear",
+
+    swing:
+        "Swing Trades",
+
+    portfolio:
+        "Carteira",
+
+    penny:
+        "Penny Stocks",
+
+    ranking:
+        "Ranking",
+
+    analysis:
+        "Análises",
+
+    catalysts:
+        "Catalisadores",
+
+    alerts:
+        "Alertas",
+
+    conclusion:
+        "Conclusão"
+
 };
 
 
-/*
-   Lista oficial das 15 páginas.
-
-   Usamos os IDs reais do HTML:
-   #overview
-   #macro
-   #brazil
-   etc.
-
-   Isso evita depender de class="radar-page"
-   ou data-page.
-*/
-
-const PAGE_IDS =
-    Object.keys(
-        PAGE_TITLES
-    );
-
-
 /* ============================================================
-   MOSTRAR UMA ÚNICA PÁGINA
+   MOSTRAR PÁGINA
    ============================================================ */
 
 function showPage(
@@ -3313,132 +3337,158 @@ function showPage(
 ) {
 
     /*
-       Se alguém passar um ID inválido,
-       voltamos automaticamente para Overview.
+       Todas as páginas
     */
 
+    const pages =
+        document
+            .querySelectorAll(
+                ".radar-page"
+            );
+
+
+    /*
+       Todos os itens da sidebar
+    */
+
+    const links =
+        document
+            .querySelectorAll(
+
+                ".sidebar-link" +
+                "[data-page-target]"
+
+            );
+
+
+    /*
+       Procura a página selecionada
+    */
+
+    const targetPage =
+        document
+            .querySelector(
+
+                `.radar-page` +
+                `[data-page="${pageId}"]`
+
+            );
+
+
+    /*
+       Caso exista algum problema,
+       volta para Overview
+    */
+
+    const fallbackPage =
+        document
+            .querySelector(
+
+                '.radar-page' +
+                '[data-page="overview"]'
+
+            );
+
+
+    const activePage =
+        targetPage ||
+        fallbackPage;
+
+
+    if (
+        !activePage
+    ) {
+
+        return;
+
+    }
+
+
     const activeId =
-        PAGE_IDS.includes(
-            pageId
-        )
-            ? pageId
-            : "overview";
+
+        activePage
+            .dataset
+            .page ||
+
+        "overview";
 
 
     /* ========================================================
-       ESCONDER TODAS AS 15 SEÇÕES
+       ESCONDER TODAS AS PÁGINAS
        ======================================================== */
 
-    PAGE_IDS.forEach(
-        (id) => {
+    pages.forEach(
+        (page) => {
 
-            const page =
-                document.getElementById(
-                    id
+            const isActive =
+                page ===
+                activePage;
+
+
+            /*
+               Classe visual
+            */
+
+            page.classList
+                .toggle(
+
+                    "is-active",
+
+                    isActive
+
                 );
 
 
             /*
-               Se alguma seção não existir,
-               apenas ignoramos.
-            */
+               HTML hidden
 
-            if (!page) {
-
-                return;
-
-            }
-
-
-            const isActive =
-                id === activeId;
-
-
-            /*
-               hidden é a propriedade HTML
-               padrão para ocultar elementos.
+               Somente uma página
+               fica visível.
             */
 
             page.hidden =
                 !isActive;
-
-
-            /*
-               Também aplicamos display diretamente.
-
-               Isso evita qualquer regra do CSS antigo
-               sobrescrever o atributo hidden.
-            */
-
-            page.style.display =
-                isActive
-                    ? ""
-                    : "none";
-
-
-            /*
-               Mantemos a classe is-active
-               para uso visual futuro.
-            */
-
-            page.classList.toggle(
-                "is-active",
-                isActive
-            );
-
-
-            /*
-               Acessibilidade.
-            */
-
-            page.setAttribute(
-                "aria-hidden",
-                isActive
-                    ? "false"
-                    : "true"
-            );
 
         }
     );
 
 
     /* ========================================================
-       SIDEBAR
+       ITEM ATIVO DA SIDEBAR
        ======================================================== */
-
-    const links =
-        document.querySelectorAll(
-            ".sidebar-link[data-page-target]"
-        );
-
 
     links.forEach(
         (link) => {
 
             const isActive =
-                link.dataset.pageTarget ===
+
+                link
+                    .dataset
+                    .pageTarget ===
                 activeId;
 
 
-            /*
-               Destaque azul do item selecionado.
-            */
+            link
+                .classList
+                .toggle(
 
-            link.classList.toggle(
-                "is-active",
+                    "is-active",
+
+                    isActive
+
+                );
+
+
+            if (
                 isActive
-            );
-
-
-            /*
-               Acessibilidade.
-            */
-
-            if (isActive) {
+            ) {
 
                 link.setAttribute(
+
                     "aria-current",
+
                     "page"
+
                 );
 
             } else {
@@ -3458,31 +3508,20 @@ function showPage(
        ======================================================== */
 
     /*
-       radar-summary fica visível somente
-       quando Overview estiver selecionado.
+       O resumo institucional fica
+       visível somente no Overview.
     */
 
     const summary =
-        document.getElementById(
-            "radar-summary"
-        );
+        $("radar-summary");
 
 
     if (summary) {
 
-        const showSummary =
-            activeId ===
-            "overview";
-
-
         summary.hidden =
-            !showSummary;
 
-
-        summary.style.display =
-            showSummary
-                ? ""
-                : "none";
+            activeId !==
+            "overview";
 
     }
 
@@ -3492,26 +3531,20 @@ function showPage(
        ======================================================== */
 
     /*
-       O bloco Sources não é uma das 15 páginas.
+       O bloco Fontes não pertence
+       às 15 páginas principais.
 
-       Por enquanto ele permanece oculto.
-       Depois podemos criar um item "Fontes"
-       na sidebar se desejar.
+       Por enquanto fica oculto.
     */
 
     const sources =
-        document.getElementById(
-            "sources"
-        );
+        $("sources");
 
 
     if (sources) {
 
         sources.hidden =
             true;
-
-        sources.style.display =
-            "none";
 
     }
 
@@ -3521,27 +3554,42 @@ function showPage(
        ======================================================== */
 
     const title =
-        document.querySelector(
-            ".page-context-title"
-        );
+        document
+            .querySelector(
+
+                ".page-context-title"
+
+            );
 
 
     if (title) {
 
         title.textContent =
+
             PAGE_TITLES[
                 activeId
-            ];
+            ] ||
+
+            "Global Markets Intelligence";
 
     }
 
 
     /* ========================================================
-       TÍTULO DA ABA DO NAVEGADOR
+       TÍTULO DA ABA
        ======================================================== */
 
     document.title =
-        `${PAGE_TITLES[activeId]} · Radar Institucional`;
+
+        `${
+
+            PAGE_TITLES[
+                activeId
+            ] ||
+
+            "Radar"
+
+        } · Radar Institucional`;
 
 
     /* ========================================================
@@ -3551,28 +3599,24 @@ function showPage(
     /*
        Exemplo:
 
-       Overview:
-       http://localhost:8000/#overview
-
-       Setores:
-       http://localhost:8000/#sectors
-
-       Power:
-       http://localhost:8000/#power
+       #overview
+       #power
+       #analysis
+       #portfolio
     */
 
     if (
+
         updateHash &&
+
         window.location.hash !==
             `#${activeId}`
+
     ) {
 
-        history.pushState(
+        history.replaceState(
 
-            {
-                page:
-                    activeId
-            },
+            null,
 
             "",
 
@@ -3605,15 +3649,18 @@ function showPage(
 
 function initPageNavigation() {
 
-
     const links =
-        document.querySelectorAll(
-            ".sidebar-link[data-page-target]"
-        );
+        document
+            .querySelectorAll(
+
+                ".sidebar-link" +
+                "[data-page-target]"
+
+            );
 
 
     /* ========================================================
-       CLIQUE NOS ITENS DA SIDEBAR
+       CLIQUE NA SIDEBAR
        ======================================================== */
 
     links.forEach(
@@ -3625,41 +3672,30 @@ function initPageNavigation() {
 
                 (event) => {
 
-
                     /*
-                       Impede o comportamento padrão:
-
-                       href="#sectors"
-
-                       Sem isso o navegador simplesmente
-                       rolaria a página.
+                       Impede o navegador
+                       de apenas rolar até
+                       a âncora.
                     */
 
-                    event.preventDefault();
+                    event
+                        .preventDefault();
 
 
                     /*
-                       Obtém o destino do menu.
-
-                       Exemplo:
-
-                       data-page-target="sectors"
+                       Descobre qual página
+                       foi clicada.
                     */
 
                     const pageId =
-                        link.dataset
+
+                        link
+                            .dataset
                             .pageTarget;
 
 
-                    if (!pageId) {
-
-                        return;
-
-                    }
-
-
                     /*
-                       Mostra somente a página selecionada.
+                       Mostra apenas ela.
                     */
 
                     showPage(
@@ -3683,41 +3719,40 @@ function initPageNavigation() {
        ======================================================== */
 
     /*
-       Se a URL já possuir hash:
+       Se URL for:
 
        localhost:8000/#power
 
-       abrirá diretamente Power / Data Center.
+       abre Power.
+
+       Se não houver hash,
+       abre Overview.
     */
 
     const hashPage =
-        window.location
+
+        window
+            .location
             .hash
+
             .replace(
                 "#",
                 ""
             )
+
             .trim();
 
 
-    /*
-       Verificamos se o hash é uma
-       das páginas permitidas.
-    */
-
     const initialPage =
-        PAGE_IDS.includes(
+
+        PAGE_TITLES[
             hashPage
-        )
+        ]
 
             ? hashPage
 
             : "overview";
 
-
-    /*
-       Exibe a página inicial.
-    */
 
     showPage(
 
@@ -3729,39 +3764,44 @@ function initPageNavigation() {
 
 
     /* ========================================================
-       BOTÕES VOLTAR / AVANÇAR
+       ALTERAÇÃO DE HASH
        ======================================================== */
 
     window.addEventListener(
 
-        "popstate",
+        "hashchange",
 
         () => {
 
-
             const pageId =
-                window.location
+
+                window
+                    .location
                     .hash
+
                     .replace(
                         "#",
                         ""
                     )
+
                     .trim();
 
 
-            showPage(
-
-                PAGE_IDS.includes(
+            if (
+                PAGE_TITLES[
                     pageId
-                )
+                ]
+            ) {
 
-                    ? pageId
+                showPage(
 
-                    : "overview",
+                    pageId,
 
-                false
+                    false
 
-            );
+                );
+
+            }
 
         }
 
@@ -3780,28 +3820,15 @@ document.addEventListener(
 
     () => {
 
-
         /*
-           Primeiro ativamos a navegação.
+           Inicializa sidebar
         */
 
         initPageNavigation();
 
 
         /*
-           Depois carregamos o radar.json.
-
-           As funções:
-
-           renderMarketOverview
-           renderMacro
-           renderBrazil
-           renderFutures
-           renderSectors
-           renderPower
-           etc.
-
-           continuam exatamente iguais.
+           Carrega radar.json
         */
 
         carregarRadar();
