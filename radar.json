@@ -2,14 +2,14 @@
   "schema_version": "2.1",
   "radar": {
     "date": "2026-09-12",
-    "generated_at": "2026-09-12T02:00:57-03:00",
+    "generated_at": "2026-09-12T02:13:00-03:00",
     "timezone": "America/Sao_Paulo",
     "status": "PARTIAL",
     "market_regime": "CAUTION",
     "institutional_sentiment": "CAUTION",
     "daily_bias": "SELETIVO",
     "risk_level": "ALTO",
-    "summary": "Wall Street recuperou em 11/09, mas CPI e PPI reforçaram risco de alta de juros pelo Fed. Treasury de 10 anos próximo de 5% e petróleo acima de US$100 mantêm risco elevado. No Brasil, fluxo estrangeiro melhorou e a inflação doméstica favorece juros menores."
+    "summary": "Wall Street recuperou em 11/09, mas inflação, Treasury próximo de 5% e petróleo acima de US$100 mantêm risco elevado. No Brasil, a deflação mensal favorece expectativa de queda da Selic e o fluxo estrangeiro permanece positivo."
   },
   "global_market": {
     "dow": {
@@ -68,7 +68,7 @@
     },
     "wti": {
       "value": 100.05,
-      "change_pct": null,
+      "change_pct": -2.37,
       "market_date": "2026-09-11",
       "market_status": "CLOSED"
     }
@@ -81,13 +81,13 @@
       "time": null,
       "timezone": "America/New_York",
       "result": 162000,
-      "expectation": 56000,
+      "expectation": null,
       "previous": null,
       "impact": "NEGATIVO",
       "magnitude": "FORTE",
       "win_impact": "NEGATIVO",
       "wdo_impact": "POSITIVO",
-      "comment": "Mercado de trabalho mais forte elevou risco de aperto monetário."
+      "comment": "Mercado de trabalho resistente mantém risco de aperto monetário."
     },
     {
       "event": "US Unemployment Rate August",
@@ -112,12 +112,12 @@
       "timezone": "America/New_York",
       "result": 0.4,
       "expectation": 0.4,
-      "previous": 0.1,
+      "previous": null,
       "impact": "NEGATIVO",
       "magnitude": "FORTE",
       "win_impact": "NEGATIVO",
       "wdo_impact": "POSITIVO",
-      "comment": "PPI mensal em linha, mas detalhes inflacionários foram firmes."
+      "comment": "PPI manteve pressão inflacionária."
     },
     {
       "event": "US Consumer Price Index August",
@@ -132,7 +132,7 @@
       "magnitude": "FORTE",
       "win_impact": "NEGATIVO",
       "wdo_impact": "POSITIVO",
-      "comment": "CPI anual atingiu 3.4% e o núcleo mensal subiu 0.3%."
+      "comment": "CPI anual atingiu 3.4% e núcleo mensal avançou 0.3%."
     },
     {
       "event": "Federal Reserve FOMC Meeting",
@@ -147,7 +147,7 @@
       "magnitude": "CRITICA",
       "win_impact": "ALTA VOLATILIDADE",
       "wdo_impact": "ALTA VOLATILIDADE",
-      "comment": "Mercado precifica alta probabilidade de aumento de 25 pontos-base."
+      "comment": "Mercado precifica elevada probabilidade de alta de 25 pontos-base."
     }
   ],
   "brazil": {
@@ -175,17 +175,17 @@
     "fiscal_risk": "MODERADO",
     "political_risk": "MODERADO",
     "market_bias": "CAUTION",
-    "comment": "IPCA de agosto registrou deflação mensal de 0.32%, enquanto o cenário externo permanece pressionado por juros e petróleo."
+    "comment": "IPCA de agosto apresentou deflação mensal de 0.32%, favorecendo expectativa de redução da Selic, enquanto o cenário externo segue pressionado."
   },
   "foreign_flow": {
-    "latest_date": "2026-09-03",
-    "daily_flow_brl": 1.7,
-    "monthly_flow_brl": 3.9,
-    "year_to_date_flow_brl": 22.2,
+    "latest_date": "2026-09-04",
+    "daily_flow_brl": 1.3,
+    "monthly_flow_brl": 5.3,
+    "year_to_date_flow_brl": 23.6,
     "trend": "MELHORANDO",
     "status": "ENTRADA",
     "data_delay": "D+2",
-    "comment": "Capital estrangeiro voltou à ponta compradora nos três primeiros pregões de setembro."
+    "comment": "Fluxo estrangeiro permanece comprador na B3; os valores disponíveis possuem data de corte anterior ao fechamento de 11/09."
   },
   "futures": {
     "win": {
@@ -233,7 +233,7 @@
       "performance_pct": null,
       "trend": "MELHORANDO",
       "bias": "BULLISH_VOLATIL",
-      "comment": "Demanda elétrica de data centers sustenta a tese estrutural."
+      "comment": "Contratos de HALEU e demanda elétrica de data centers sustentam a tese estrutural."
     },
     {
       "sector": "Healthcare",
@@ -266,17 +266,17 @@
       "trend": "PIORANDO",
       "institutional_bias": "CAUTION",
       "recommendation": "HOLD",
-      "comment": "Alta volatilidade após quedas fortes em 9 e 10 de setembro. Nova posição do usuário tem entrada a 253.00 e alvo de +5%."
+      "comment": "Alta volatilidade recente. Posição ativa do usuário tem entrada a 253.00 e alvo de +5%, equivalente a 265.65."
     },
     {
       "ticker": "POWL",
       "company": "Powell Industries",
-      "price": null,
-      "change_pct": null,
+      "price": 175.86,
+      "change_pct": -2.44,
       "trend": "MELHORANDO",
       "institutional_bias": "POSITIVO",
       "recommendation": "WATCH",
-      "comment": "Fundamentos e exposição à infraestrutura elétrica permanecem atraentes."
+      "comment": "Backlog de 2.4 bilhões, pedidos de 934 milhões e contrato de data center superior a 400 milhões sustentam tese fundamental."
     },
     {
       "ticker": "BE",
@@ -286,7 +286,7 @@
       "trend": "ESTAVEL",
       "institutional_bias": "CAUTION",
       "recommendation": "WATCH",
-      "comment": "Posição do usuário encerrada a 244.63. Mantida apenas no universo temático."
+      "comment": "Posição do usuário encerrada. Mantida somente no universo Power/Data Center."
     },
     {
       "ticker": "GEV",
@@ -306,26 +306,27 @@
       "price": null,
       "change_pct": null,
       "trend": "MELHORANDO",
-      "catalyst": "Demanda por enriquecimento nuclear e energia para data centers",
+      "catalyst": "DOE HALEU, X-energy, Radiant Industries e expansão doméstica de enriquecimento nuclear",
       "recommendation": "WATCH",
-      "comment": "Tema estrutural forte, mas ação de alta volatilidade."
+      "comment": "Backlog contingente de aproximadamente 3 bilhões e novos contratos reforçam tese estratégica, com elevada volatilidade."
     }
   ],
   "swing_trades": [
     {
       "ticker": "POWL",
       "company": "Powell Industries",
-      "price": null,
-      "entry": null,
+      "price": 175.86,
+      "entry": 182.46,
       "stop": null,
-      "target": null,
+      "target": 200.71,
       "risk_reward": null,
       "technical_bias": "POSITIVO",
       "recommendation": "WATCH",
       "thesis": "Infraestrutura elétrica e data centers.",
       "catalysts": [
         "Data center demand",
-        "Electrical infrastructure"
+        "Electrical infrastructure",
+        "Record backlog"
       ]
     },
     {
@@ -341,7 +342,7 @@
       "thesis": "Infraestrutura crítica de energia e refrigeração para data centers.",
       "catalysts": [
         "AI data centers",
-        "Utility Innovation Group acquisition"
+        "UtilityInnovation Group acquisition"
       ]
     },
     {
@@ -354,7 +355,7 @@
       "risk_reward": null,
       "technical_bias": "POSITIVO",
       "recommendation": "HOLD",
-      "thesis": "Custom silicon e infraestrutura de AI.",
+      "thesis": "Custom silicon e conectividade de infraestrutura de AI.",
       "catalysts": [
         "AI infrastructure",
         "Custom silicon"
@@ -373,7 +374,9 @@
       "thesis": "Enriquecimento nuclear e demanda elétrica estrutural.",
       "catalysts": [
         "HALEU",
-        "Nuclear power demand"
+        "DOE contract",
+        "X-energy",
+        "Radiant Industries"
       ]
     },
     {
@@ -414,7 +417,7 @@
       "risk_level": "ALTO",
       "catalyst": "INTERCEPT Blood System",
       "recommendation": "WATCH",
-      "comment": "Receita operacional crescente, mas companhia ainda deficitária."
+      "comment": "Receita operacional existente, mas risco permanece elevado."
     },
     {
       "ticker": "LUNG",
@@ -425,7 +428,7 @@
       "risk_level": "ALTO",
       "catalyst": "Medical technology",
       "recommendation": "WATCH",
-      "comment": "Preço atualizado confiável não localizado nesta execução."
+      "comment": "Preço atualizado confiável não confirmado nesta execução."
     }
   ],
   "portfolio": [
@@ -436,7 +439,7 @@
       "change_pct": -3.43,
       "position_bias": "POSITIVO",
       "recommendation": "HOLD",
-      "thesis": "AI e custom silicon.",
+      "thesis": "Entrada 197.07; alvo 267.65. Exposição a AI e custom silicon.",
       "risk_level": "ALTO",
       "catalysts": [
         "AI infrastructure",
@@ -454,7 +457,8 @@
       "risk_level": "ALTO",
       "catalysts": [
         "AI data centers",
-        "Power infrastructure"
+        "Power infrastructure",
+        "UtilityInnovation Group acquisition"
       ]
     },
     {
@@ -507,6 +511,21 @@
       "catalysts": []
     },
     {
+      "ticker": "POWL",
+      "company": "Powell Industries",
+      "price": 175.86,
+      "change_pct": -2.44,
+      "position_bias": "POSITIVO",
+      "recommendation": "HOLD",
+      "thesis": "Entrada 182.46; alvo de +10%, equivalente a 200.71. Exposição à infraestrutura elétrica e data centers.",
+      "risk_level": "MODERADO",
+      "catalysts": [
+        "Data center demand",
+        "Electrical infrastructure",
+        "Record backlog"
+      ]
+    },
+    {
       "ticker": "BOVA11",
       "company": "iShares Ibovespa Fundo de Índice",
       "price": null,
@@ -551,19 +570,19 @@
   "broker_recommendations": {
     "stocks": [],
     "top10_bullish_count": null,
-    "comment": "Não foram localizadas nesta execução evidências suficientes para atribuir recomendações atuais individualmente às dez research houses monitoradas."
+    "comment": "Não foram localizadas evidências suficientes para atribuir recomendações atuais individualmente às dez research houses monitoradas."
   },
   "fundamental_analysis": [
     {
       "ticker": "POWL",
       "company": "Powell Industries",
       "valuation": "MODERADA/ALTA",
-      "revenue_growth": null,
-      "earnings_growth": null,
+      "revenue_growth": 9,
+      "earnings_growth": 8,
       "profitability": "FORTE",
       "balance_sheet": "FORTE",
       "fundamental_bias": "POSITIVO",
-      "comment": "Margem bruta aproximada de 30.08%, margem operacional 19.67% e FCF margin 21.08%."
+      "comment": "Backlog de 2.4 bilhões, novos pedidos de 934 milhões, gross margin de 30.6% e data center order superior a 400 milhões."
     },
     {
       "ticker": "VRT",
@@ -574,18 +593,29 @@
       "profitability": "FORTE",
       "balance_sheet": "ESTAVEL",
       "fundamental_bias": "POSITIVO",
-      "comment": "Forward P/E aproximado de 31.67; tese estrutural permanece forte apesar da volatilidade."
+      "comment": "Forward P/E aproximado de 31.67; tese estrutural permanece forte e aquisição da UIG amplia exposição a energia para data centers."
+    },
+    {
+      "ticker": "LEU",
+      "company": "Centrus Energy",
+      "valuation": "ALTA",
+      "revenue_growth": null,
+      "earnings_growth": null,
+      "profitability": "POSITIVA",
+      "balance_sheet": "ESTAVEL",
+      "fundamental_bias": "POSITIVO",
+      "comment": "Contrato DOE de 900 milhões, backlog contingente de aproximadamente 3 bilhões e novos acordos comerciais de HALEU."
     },
     {
       "ticker": "CRSP",
       "company": "CRISPR Therapeutics",
       "valuation": "ESPECULATIVA",
-      "revenue_growth": -64.8,
+      "revenue_growth": null,
       "earnings_growth": null,
       "profitability": "NEGATIVA",
       "balance_sheet": "MODERADO",
       "fundamental_bias": "CAUTION",
-      "comment": "Receita TTM de 13.39 milhões e prejuízo líquido de 451.14 milhões."
+      "comment": "Biotech de elevado potencial e risco; diluição e execução clínica permanecem relevantes."
     },
     {
       "ticker": "ETON",
@@ -596,7 +626,7 @@
       "profitability": "POSITIVA",
       "balance_sheet": "FORTE",
       "fundamental_bias": "POSITIVO",
-      "comment": "Margem bruta 61.41% e margem operacional 19.54%."
+      "comment": "Tese de crescimento em doenças raras permanece ativa."
     }
   ],
   "technical_analysis": [
@@ -611,7 +641,7 @@
       "moving_average_50": null,
       "moving_average_200": null,
       "technical_bias": "CAUTION",
-      "comment": "Quedas de 9.61% em 09/09 e 5.61% em 10/09 elevaram substancialmente a volatilidade."
+      "comment": "Quedas consecutivas elevaram substancialmente a volatilidade."
     },
     {
       "ticker": "MRVL",
@@ -627,6 +657,19 @@
       "comment": "Preço verificável permanece acima da entrada do usuário."
     },
     {
+      "ticker": "POWL",
+      "company": "Powell Industries",
+      "trend": "ESTAVEL",
+      "support": null,
+      "resistance": null,
+      "rsi": null,
+      "moving_average_20": null,
+      "moving_average_50": null,
+      "moving_average_200": null,
+      "technical_bias": "CAUTION",
+      "comment": "Preço permanece abaixo da entrada de 182.46; fundamentos continuam melhores que o momentum recente."
+    },
+    {
       "ticker": "CRSP",
       "company": "CRISPR Therapeutics",
       "trend": "PIORANDO",
@@ -637,7 +680,7 @@
       "moving_average_50": null,
       "moving_average_200": null,
       "technical_bias": "CAUTION",
-      "comment": "Sequência recente de quedas colocou o preço abaixo da entrada de 54.41."
+      "comment": "Preço verificável permanece abaixo da entrada de 54.41."
     }
   ],
   "catalysts": [
@@ -655,7 +698,15 @@
       "event": "Federal Reserve policy decision",
       "importance": "CRITICA",
       "expected_impact": "ALTA VOLATILIDADE",
-      "comment": "Inflação recente aumentou as apostas de alta de juros."
+      "comment": "Inflação recente elevou substancialmente as apostas de alta de juros."
+    },
+    {
+      "date": "2026-09-09",
+      "ticker": "LEU",
+      "event": "HALEU supply contract with Radiant Industries",
+      "importance": "FORTE",
+      "expected_impact": "POSITIVO",
+      "comment": "Novo contrato amplia os catalisadores comerciais de Centrus."
     },
     {
       "date": "2026-10-21",
@@ -663,7 +714,7 @@
       "event": "Estimated earnings",
       "importance": "FORTE",
       "expected_impact": "ALTA VOLATILIDADE",
-      "comment": "Data estimada disponível na fonte consultada."
+      "comment": "Data estimada pela fonte consultada."
     }
   ],
   "alerts": [
@@ -678,21 +729,35 @@
       "type": "MONETARY_POLICY",
       "severity": "HIGH",
       "ticker": null,
-      "message": "CPI e PPI aumentaram a probabilidade de aperto do Fed.",
+      "message": "Inflação elevou substancialmente a probabilidade de aperto do Fed.",
       "action": "Monitorar FOMC de 15-16 de setembro."
+    },
+    {
+      "type": "GEOPOLITICS",
+      "severity": "HIGH",
+      "ticker": null,
+      "message": "Brent permanece acima de US$100 com riscos de oferta no Oriente Médio.",
+      "action": "Monitorar petróleo, inflação e Treasury."
     },
     {
       "type": "VOLATILITY",
       "severity": "HIGH",
       "ticker": "VRT",
-      "message": "VRT apresentou duas sessões consecutivas de forte queda.",
+      "message": "VRT apresentou sessões recentes de forte queda.",
       "action": "HOLD sem aumento automático da posição."
+    },
+    {
+      "type": "POSITION",
+      "severity": "MEDIUM",
+      "ticker": "POWL",
+      "message": "POWL permanece abaixo da entrada de 182.46 apesar dos fundamentos fortes.",
+      "action": "Aguardar confirmação técnica antes de aumentar exposição."
     },
     {
       "type": "BIOTECH",
       "severity": "HIGH",
       "ticker": "CRSP",
-      "message": "CRSP apresenta alto risco fundamental e volatilidade.",
+      "message": "CRSP apresenta elevado risco fundamental e volatilidade.",
       "action": "Monitorar catalysts clínicos e evitar aumento sem confirmação."
     }
   ],
@@ -704,7 +769,7 @@
       "score": 8.8,
       "recommendation": "WATCH",
       "risk_level": "MODERADO",
-      "reason": "Infraestrutura elétrica e data centers com fundamentos fortes."
+      "reason": "Infraestrutura elétrica, data centers, backlog recorde e forte geração operacional."
     },
     {
       "rank": 2,
@@ -713,7 +778,7 @@
       "score": 8.5,
       "recommendation": "HOLD",
       "risk_level": "ALTO",
-      "reason": "Tese estrutural forte, mas volatilidade recente elevada."
+      "reason": "Tese estrutural forte, ampliada pela aquisição da UIG, mas volatilidade recente elevada."
     },
     {
       "rank": 3,
@@ -722,16 +787,16 @@
       "score": 8.3,
       "recommendation": "HOLD",
       "risk_level": "ALTO",
-      "reason": "Exposição a AI e custom silicon."
+      "reason": "Exposição a AI, custom silicon e conectividade de data centers."
     },
     {
       "rank": 4,
       "ticker": "LEU",
       "company": "Centrus Energy",
-      "score": 8.1,
+      "score": 8.2,
       "recommendation": "WATCH",
       "risk_level": "ALTO",
-      "reason": "Tese nuclear e enriquecimento."
+      "reason": "DOE, X-energy, Radiant Industries e expansão doméstica de enriquecimento nuclear."
     },
     {
       "rank": 5,
@@ -740,7 +805,7 @@
       "score": 7.8,
       "recommendation": "WATCH",
       "risk_level": "ALTO",
-      "reason": "Potencial de gene editing com elevado risco fundamental."
+      "reason": "Potencial de gene editing com elevado risco fundamental e técnico."
     },
     {
       "rank": 6,
@@ -749,7 +814,7 @@
       "score": 7.7,
       "recommendation": "HOLD",
       "risk_level": "ALTO",
-      "reason": "Crescimento em rare diseases e boa margem, mas posição abaixo da entrada."
+      "reason": "Crescimento em rare diseases, mas posição permanece abaixo da entrada."
     },
     {
       "rank": 7,
@@ -767,7 +832,7 @@
       "score": 7.4,
       "recommendation": "WATCH",
       "risk_level": "ALTO",
-      "reason": "Receita real e crescimento, porém ainda deficitária."
+      "reason": "Receita real e produto comercial, porém risco operacional permanece elevado."
     },
     {
       "rank": 9,
@@ -776,7 +841,7 @@
       "score": 7.3,
       "recommendation": "WATCH",
       "risk_level": "ALTO",
-      "reason": "Healthcare com potencial, mas momentum recente fraco."
+      "reason": "Healthcare com crescimento, mas momentum recente fraco."
     },
     {
       "rank": 10,
@@ -785,7 +850,7 @@
       "score": 7.1,
       "recommendation": "HOLD",
       "risk_level": "MODERADO",
-      "reason": "Healthcare defensivo; dados atuais de preço indisponíveis nesta execução."
+      "reason": "Healthcare defensivo; dados atuais de preço não confirmados nesta execução."
     }
   ],
   "operational_conclusion": {
@@ -801,85 +866,67 @@
     },
     "stocks": {
       "bias": "SELETIVO",
-      "comment": "Preferência por Power/Data Center, mas sem perseguir momentum."
+      "comment": "Preferência por Power/Data Center e Nuclear, sem perseguir momentum."
     },
     "preferred_theme": "Power/Data Center Infrastructure",
     "main_risk": "Treasury próximo de 5%, Fed, inflação e petróleo acima de US$100",
     "main_catalyst": "FOMC de 15-16 de setembro",
-    "action": "Manter seletividade; HOLD VRT/MRVL/ETON, WATCH CRSP e POWL, e aguardar confirmação intraday antes de operar WIN."
+    "action": "Manter seletividade; HOLD VRT/MRVL/ETON/POWL, WATCH CRSP e LEU, e aguardar confirmação intraday antes de operar WIN."
   },
   "sources": [
     {
-      "name": "Reuters",
-      "url": "https://www.reuters.com/business/wall-st-futures-recover-oil-slides-ahead-inflation-test-2026-09-11/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
+      "name": "Reuters - Wall Street",
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
       "supports": "Fechamento de Wall Street, VIX e expectativas para o Fed."
     },
     {
-      "name": "Reuters",
-      "url": "https://www.reuters.com/world/us/us-consumer-inflation-picks-up-august-2026-09-11/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "CPI dos EUA de agosto e precificação do Fed."
+      "name": "Reuters - US Treasury",
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
+      "supports": "Treasury de 10 anos e ambiente global de juros."
     },
     {
-      "name": "Reuters",
-      "url": "https://www.reuters.com/business/us-producer-prices-increase-expected-august-2026-09-10/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "PPI dos EUA de agosto."
-    },
-    {
-      "name": "Reuters",
-      "url": "https://www.reuters.com/business/energy/oil-prices-set-end-week-over-100-first-time-nearly-4-months-2026-09-11/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
+      "name": "Reuters - Oil",
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
       "supports": "Brent, WTI e contexto geopolítico."
     },
     {
-      "name": "InfoMoney",
-      "url": "https://www.infomoney.com.br/mercados/fluxo-estrangeiro-bolsa-setembro-2026/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Fluxo estrangeiro na B3 em setembro e acumulado de 2026."
-    },
-    {
       "name": "UOL Economia",
-      "url": "https://economia.uol.com.br/cotacoes/noticias/redacao/2026/09/11/dolar-bolsa-fechamento-hoje-11-de-setembro-de-2026.ghtm",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Ibovespa, dólar BRL, IPCA e Brent no fechamento brasileiro."
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
+      "supports": "Ibovespa, USD/BRL e IPCA."
     },
     {
       "name": "StockAnalysis",
-      "url": "https://stockanalysis.com/stocks/vrt/history/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Histórico recente de preço da VRT."
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
+      "supports": "VRT, MRVL, POWL, CRSP, ETON, ALHC e BE."
     },
     {
-      "name": "StockAnalysis",
-      "url": "https://stockanalysis.com/stocks/mrvl/history/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Histórico recente de preço da MRVL."
+      "name": "SEC - Powell Industries",
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
+      "supports": "Backlog, pedidos, margens e contrato de data center de POWL."
     },
     {
-      "name": "StockAnalysis",
-      "url": "https://stockanalysis.com/stocks/crsp/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Preço e fundamentos resumidos de CRSP."
+      "name": "Vertiv",
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
+      "supports": "Aquisição da UtilityInnovation Group."
     },
     {
-      "name": "StockAnalysis",
-      "url": "https://stockanalysis.com/stocks/eton/history/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Preço recente de ETON."
+      "name": "Centrus Energy / SEC",
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
+      "supports": "DOE HALEU, backlog, X-energy e Radiant Industries."
     },
     {
-      "name": "StockAnalysis",
-      "url": "https://stockanalysis.com/stocks/neph/history/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Preço e volume recente de NEPH."
-    },
-    {
-      "name": "StockAnalysis",
-      "url": "https://stockanalysis.com/stocks/cers/",
-      "retrieved_at": "2026-09-12T02:00:57-03:00",
-      "supports": "Preço e fundamentos resumidos de CERS."
+      "name": "Marvell Investor Relations",
+      "url": null,
+      "retrieved_at": "2026-09-12T02:13:00-03:00",
+      "supports": "AI data center connectivity e custom silicon."
     }
   ]
 }
