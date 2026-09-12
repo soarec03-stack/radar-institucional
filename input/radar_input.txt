@@ -2,7 +2,7 @@
   "schema_version": "2.1",
   "radar": {
     "date": "2026-09-12",
-    "generated_at": "2026-09-12T02:58:00-03:00",
+    "generated_at": "2026-09-12T02:58:00-03:10",
     "timezone": "America/Sao_Paulo",
     "status": "PARTIAL",
     "market_regime": "CAUTION",

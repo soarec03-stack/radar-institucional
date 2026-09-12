@@ -2895,79 +2895,86 @@ function renderAlerts(data) {
 
 function renderConclusion(data) {
 
-    const conclusion =
-        data.operational_conclusion ||
-        {};
+    const container =
+        $("conclusionText");
 
+    if (!container) {
+        return;
+    }
+
+    clear(container);
+
+    const conclusion =
+        data.operational_conclusion || {};
 
     const win =
         conclusion.win || {};
 
-
     const wdo =
         conclusion.wdo || {};
-
 
     const stocks =
         conclusion.stocks || {};
 
 
-    setStateText(
-        "conclusionWin",
-        win.bias
+    function addConclusionLine(
+        title,
+        value
+    ) {
+
+        const p =
+            document.createElement("p");
+
+        const strong =
+            document.createElement("strong");
+
+        strong.textContent =
+            `${title}: `;
+
+        p.appendChild(strong);
+
+        p.appendChild(
+            document.createTextNode(
+                text(value)
+            )
+        );
+
+        container.appendChild(p);
+    }
+
+
+    addConclusionLine(
+        "WIN",
+        `${label(win.bias)} — ${text(win.comment)}`
     );
 
-
-    setText(
-        "conclusionWinText",
-        win.comment
+    addConclusionLine(
+        "WDO",
+        `${label(wdo.bias)} — ${text(wdo.comment)}`
     );
 
-
-    setStateText(
-        "conclusionWdo",
-        wdo.bias
+    addConclusionLine(
+        "Ações",
+        `${label(stocks.bias)} — ${text(stocks.comment)}`
     );
 
-
-    setText(
-        "conclusionWdoText",
-        wdo.comment
-    );
-
-
-    setStateText(
-        "conclusionStocks",
-        stocks.bias
-    );
-
-
-    setText(
-        "preferredTheme",
+    addConclusionLine(
+        "Tema preferido",
         conclusion.preferred_theme
     );
 
-
-    setText(
-        "mainRisk",
+    addConclusionLine(
+        "Principal risco",
         conclusion.main_risk
     );
 
-
-    setText(
-        "mainCatalyst",
+    addConclusionLine(
+        "Principal catalisador",
         conclusion.main_catalyst
     );
 
-
-    setStateText(
-        "operationalAction",
-        conclusion.action
-    );
-
-
-    setStateText(
-        "conclusionActionBadge",
+    addConclusionLine(
+        "Ação recomendada",
         conclusion.action
     );
 
